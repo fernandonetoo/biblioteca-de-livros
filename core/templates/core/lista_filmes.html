@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Filmes</title>
+</head>
+<body>
+    <h1>Filmes cadastrados</h1>
+
+    {% for filme in filmes %}
+        <div>
+            <h2>{{ filme.titulo }}</h2>
+            <p>{{ filme.descricao }}</p>
+            <p>Ano: {{ filme.ano_lancamento }}</p>
+
+            {% if filme.capa %}
+                <img src="{{ filme.capa.url }}" width="200">
+            {% endif %}
+        </div>
+        <hr>
+    {% empty %}
+        <p>Nenhum filme cadastrado.</p>
+    {% endfor %}
+</body>
+</html>
